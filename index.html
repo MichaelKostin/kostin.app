@@ -2,112 +2,389 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Animal Sounds: Learn & Play — by Mikhail Kostin</title>
-    <meta name="description" content="Discover the world of animals with your child! Animal Sounds: Learn & Play helps toddlers learn animal names and real sounds in a fun way. Available on iOS and Android." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kostin Apps — Playful apps for curious minds</title>
+    <meta name="description" content="Independent, thoughtfully made apps by Mikhail Kostin. Discover Puzzle Garden and Animal Sounds for iPhone and iPad." />
     <link rel="canonical" href="https://kostin.app/" />
-    <meta name="theme-color" content="#60a5fa" />
-    <meta property="og:title" content="Animal Sounds: Learn & Play" />
-    <meta property="og:description" content="Learn animal names and real sounds together in a fun and simple way." />
-    <meta property="og:image" content="https://animalsounds.kostin.app/og-image.jpg" />
+    <meta name="theme-color" content="#f8f5ed" />
+    <meta property="og:title" content="Kostin Apps — Playful apps for curious minds" />
+    <meta property="og:description" content="Calm puzzles and joyful learning experiences, thoughtfully made for children and families." />
     <meta property="og:url" content="https://kostin.app/" />
     <meta property="og:type" content="website" />
     <link rel="icon" href="/favicon.ico" />
     <style>
         :root {
-            --bg: #f8fafc;
-            --text: #0f172a;
-            --muted: #475569;
-            --accent: #3b82f6;
-            --card: #ffffff;
-            --ring: #e2e8f0;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0b0f1a;
-                --text: #f1f5f9;
-                --muted: #94a3b8;
-                --accent: #60a5fa;
-                --card: #121826;
-                --ring: #1e293b;
-            }
+            color-scheme: light;
+            --ink: #202018;
+            --muted: #66665e;
+            --paper: #f8f5ed;
+            --line: rgba(32, 32, 24, 0.1);
+            --radius: 32px;
         }
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
-            font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-            background: var(--bg);
-            color: var(--text);
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 8% 8%, rgba(255, 213, 102, 0.22), transparent 27rem),
+                radial-gradient(circle at 92% 18%, rgba(160, 140, 255, 0.18), transparent 31rem),
+                var(--paper);
+            font: 16px/1.55 ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; }
+        .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+        .site-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 24px;
+            justify-content: space-between;
+            min-height: 84px;
         }
-        .card {
-            background: var(--card);
-            border: 1px solid var(--ring);
-            border-radius: 24px;
-            padding: 32px 40px;
-            max-width: 580px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 18px;
+            font-weight: 780;
+            text-decoration: none;
+            letter-spacing: -0.02em;
         }
-        img.logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 20%;
-            margin-bottom: 20px;
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 34px;
+            aspect-ratio: 1;
+            border-radius: 11px;
+            color: white;
+            background: var(--ink);
+            font-size: 15px;
+        }
+        nav { display: flex; align-items: center; gap: 28px; }
+        nav a {
+            color: #66665e;
+            font-size: 14px;
+            font-weight: 650;
+            text-decoration: none;
+        }
+        nav a:hover, nav a:focus-visible { color: var(--ink); }
+        .hero { padding: clamp(68px, 10vw, 128px) 0 clamp(52px, 8vw, 96px); }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 20px;
+            color: #5d594d;
+            font-size: 13px;
+            font-weight: 760;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: #72a85f;
+            box-shadow: 0 0 0 5px rgba(114, 168, 95, 0.15);
         }
         h1 {
-            font-size: clamp(24px, 5vw, 36px);
-            margin: 0 0 12px;
+            max-width: 900px;
+            margin: 0;
+            font-size: clamp(52px, 9vw, 104px);
+            line-height: 0.94;
+            letter-spacing: -0.065em;
         }
-        p {
-            color: var(--muted);
-            margin: 0 0 24px;
+        .hero-copy {
+            max-width: 620px;
+            margin: 30px 0 0;
+            color: #66665e;
+            font-size: clamp(18px, 2.2vw, 23px);
+            line-height: 1.45;
         }
-        a.btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
+        .apps { display: grid; gap: 28px; padding-bottom: 96px; }
+        .app-card {
+            position: relative;
+            isolation: isolate;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            min-height: 540px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.62);
+            border-radius: var(--radius);
+            box-shadow: 0 24px 70px rgba(70, 56, 36, 0.09);
+        }
+        .app-card::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 460px;
+            height: 460px;
+            right: -140px;
+            bottom: -220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.23);
+        }
+        .app-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: clamp(38px, 6vw, 76px);
+        }
+        .app-icon {
+            width: 92px;
+            height: 92px;
+            margin-bottom: 28px;
+            border-radius: 22px;
+            box-shadow: 0 13px 30px rgba(35, 27, 58, 0.18);
+        }
+        .label {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            margin-bottom: 18px;
+            padding: 5px 11px;
+            border: 1px solid currentColor;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 780;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        .app-card h2 {
+            margin: 0;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+        .tagline {
+            max-width: 520px;
+            margin: 21px 0 30px;
+            font-size: clamp(17px, 2vw, 20px);
+            line-height: 1.5;
+        }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 50px;
+            padding: 13px 19px;
+            border: 1px solid rgba(28, 26, 23, 0.16);
+            border-radius: 14px;
+            background: rgba(255,255,255,.67);
+            font-size: 15px;
+            font-weight: 730;
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.15s;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
         }
-        a.btn:hover {
+        .button.primary { color: white; border-color: var(--ink); background: var(--ink); }
+        .button.disabled {
+            color: rgba(32, 32, 24, .52);
+            border-color: rgba(32, 32, 24, .1);
+            background: rgba(255, 255, 255, .38);
+            cursor: not-allowed;
+        }
+        .button:hover, .button:focus-visible {
             transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(40, 35, 27, .13);
         }
+        .button.disabled:hover { transform: none; box-shadow: none; }
+        .store-icon {
+            flex: 0 0 auto;
+            width: 19px;
+            height: 19px;
+        }
+        .button.disabled .store-icon { opacity: .58; }
+        .app-art {
+            position: relative;
+            display: grid;
+            place-items: center;
+            min-height: 380px;
+            padding: 48px;
+        }
+        .world-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(110px, 160px));
+            gap: 16px;
+            transform: rotate(3deg);
+        }
+        .puzzle-piece {
+            display: grid;
+            place-items: center;
+            aspect-ratio: 1;
+            border-radius: 34px;
+            box-shadow: inset 0 2px 0 rgba(255,255,255,.42), 0 18px 30px rgba(62,45,94,.15);
+        }
+        .puzzle-piece img {
+            width: 84%;
+            height: 84%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 8px rgba(40, 25, 61, .12));
+        }
+        .puzzle-piece:nth-child(1) { background: #a667e8; transform: translateY(9px); }
+        .puzzle-piece:nth-child(2) { background: #f4c64f; transform: rotate(3deg); }
+        .puzzle-piece:nth-child(3) { background: #ed6d67; transform: rotate(-3deg); }
+        .puzzle-piece:nth-child(4) { background: #54a6ec; transform: translateY(-8px); }
+        .puzzle { color: #342a4b; background: linear-gradient(135deg, #fff2a8 0%, #f5ddca 46%, #dcd5ff 100%); }
+        .puzzle .app-art { background: radial-gradient(circle at 60% 42%, rgba(255,255,255,.75), transparent 42%); }
+        .animals { color: #16395c; background: linear-gradient(135deg, #d9f3ff 0%, #cce9e0 50%, #ffe1bd 100%); }
+        .animals::after { display: none; }
+        .animal-scene {
+            position: relative;
+            display: grid;
+            place-items: center;
+            width: min(390px, 100%);
+            aspect-ratio: 1;
+        }
+        .animal-characters {
+            width: 94%;
+            filter: drop-shadow(0 24px 22px rgba(22,57,92,.14));
+        }
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            overflow: hidden;
+            margin-bottom: 96px;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: var(--line);
+        }
+        .value { padding: 34px; background: rgba(255,255,255,.66); }
+        .value strong { display: block; margin-bottom: 8px; font-size: 17px; }
+        .value span { color: #66665e; font-size: 15px; }
         footer {
-            margin-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 35px 0 46px;
+            border-top: 1px solid var(--line);
+            color: #66665e;
             font-size: 14px;
-            color: var(--muted);
         }
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
+        footer p { margin: 0; }
+        footer a { text-underline-offset: 3px; }
+        @media (max-width: 800px) {
+            nav a:not(:last-child) { display: none; }
+            .hero { padding-top: 72px; }
+            .app-card { grid-template-columns: 1fr; }
+            .app-copy { padding-bottom: 32px; }
+            .app-art { grid-row: 1; min-height: 330px; padding: 42px 24px 12px; }
+            .world-grid { grid-template-columns: repeat(2, 118px); }
+            .animals .app-art { grid-row: 1; }
+            .values { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 520px) {
+            .wrap { width: min(100% - 28px, 1160px); }
+            .site-header { min-height: 72px; }
+            h1 { font-size: clamp(48px, 16vw, 72px); }
+            .app-card { border-radius: 25px; }
+            .app-copy { padding: 34px 24px 38px; }
+            .app-icon { width: 78px; height: 78px; border-radius: 19px; }
+            .app-art { min-height: 285px; }
+            .animal-scene { width: 280px; }
+            footer { flex-direction: column; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .button { transition: none; }
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kostin Apps",
+      "url": "https://kostin.app/",
+      "founder": { "@type": "Person", "name": "Mikhail Kostin" }
+    }
+    </script>
 </head>
 <body>
-<main class="card">
-    <img class="logo" src="./img/adaptive-icon.png" alt="Animal Sounds app icon" />
-    <h1>Animal Sounds: Learn & Play</h1>
-    <p>Discover the world of animals with your child!
-        Tap to hear real sounds, guess the animals, and learn through play.
-        Available on iOS and Android.</p>
-    <a class="btn" href="https://animalsounds.kostin.app">Visit App Website</a>
-
-    <footer>
-        <p>Contact: <a href="mailto:hello@kostin.app">hello@kostin.app</a></p>
-        <p>© <span id="year"></span> Mikhail Kostin</p>
+    <header class="site-header wrap">
+        <a class="brand" href="/" aria-label="Kostin Apps home">
+            <span class="brand-mark" aria-hidden="true">K</span>
+            <span>Kostin Apps</span>
+        </a>
+        <nav aria-label="Main navigation">
+            <a href="#apps">Apps</a>
+            <a href="https://apps.apple.com/us/developer/mikhail-kostin/id1526948314">App Store</a>
+            <a href="mailto:hello@kostin.app">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero wrap">
+            <p class="eyebrow">Independent app studio</p>
+            <h1>Playful apps for curious minds.</h1>
+            <p class="hero-copy">Calm puzzles and joyful learning experiences, thoughtfully made for children and families.</p>
+        </section>
+        <section class="apps wrap" id="apps" aria-label="Our apps">
+            <article class="app-card puzzle">
+                <div class="app-copy">
+                    <img class="app-icon" src="./img/puzzle-garden-icon.png" alt="Puzzle Garden app icon" />
+                    <span class="label">New on the App Store</span>
+                    <h2>Puzzle Garden</h2>
+                    <p class="tagline">Little worlds, piece by piece. Explore 200 colorful picture puzzles made for children ages 3–7—with no ads, no timers, and no pressure.</p>
+                    <div class="actions">
+                        <a class="button primary" href="https://apps.apple.com/us/app/puzzle-garden-little-worlds/id6800304304">
+                            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.31.03-1.74-.78-3.25-.78-1.52 0-2 .75-3.24.81-1.3.05-2.29-1.31-3.12-2.54-1.69-2.44-2.98-6.88-1.25-9.88.86-1.49 2.43-2.43 4.11-2.46 1.28-.03 2.49.87 3.25.87.72 0 2.22-1.07 3.74-.91.63.03 2.4.25 3.53 1.91-.09.06-2.11 1.24-2.09 3.72.03 2.96 2.6 3.95 2.63 3.96-.02.07-.41 1.42-1.35 2.82M14.67 5.5c.7-.84 1.17-2.01 1.04-3.18-1.01.04-2.23.67-2.94 1.51-.64.74-1.2 1.93-1.05 3.08 1.13.09 2.26-.57 2.95-1.41z" /></svg>
+                            <span>Download on the App Store</span>
+                        </a>
+                        <span class="button disabled" aria-disabled="true">
+                            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.4 2.2 13 12 3.4 21.8c-.25-.35-.4-.79-.4-1.3v-17c0-.5.15-.95.4-1.3Z" /><path fill="#4285f4" d="m3.9 2.05 11.75 6.7L13 12 3.4 2.2c.14-.12.3-.17.5-.15Z" /><path fill="#fbbc04" d="m15.65 8.75 4.18 2.38c.9.51.9 1.23 0 1.74l-4.18 2.38L13 12l2.65-3.25Z" /><path fill="#ea4335" d="m13 12 2.65 3.25L3.9 21.95c-.2.02-.36-.03-.5-.15L13 12Z" /></svg>
+                            <span>Google Play · Coming soon</span>
+                        </span>
+                        <a class="button" href="https://puzzle.kostin.app">Visit app website</a>
+                    </div>
+                </div>
+                <div class="app-art" aria-hidden="true">
+                    <div class="world-grid">
+                        <span class="puzzle-piece"><img src="./img/puzzle-dinosaurs.webp" alt="" /></span>
+                        <span class="puzzle-piece"><img src="./img/puzzle-space.webp" alt="" /></span>
+                        <span class="puzzle-piece"><img src="./img/puzzle-ocean.webp" alt="" /></span>
+                        <span class="puzzle-piece"><img src="./img/puzzle-fairy-tales.webp" alt="" /></span>
+                    </div>
+                </div>
+            </article>
+            <article class="app-card animals">
+                <div class="app-copy">
+                    <img class="app-icon" src="./img/animal-sounds-icon.png" alt="Animal Sounds app icon" />
+                    <span class="label">Learning through play</span>
+                    <h2>Animal Sounds</h2>
+                    <p class="tagline">Hear, guess, and discover more than 60 animals through real sounds, colorful cards, and simple games for little learners.</p>
+                    <div class="actions">
+                        <a class="button primary" href="https://apps.apple.com/us/app/animal-sounds-learn-play/id6748567850">
+                            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.31.03-1.74-.78-3.25-.78-1.52 0-2 .75-3.24.81-1.3.05-2.29-1.31-3.12-2.54-1.69-2.44-2.98-6.88-1.25-9.88.86-1.49 2.43-2.43 4.11-2.46 1.28-.03 2.49.87 3.25.87.72 0 2.22-1.07 3.74-.91.63.03 2.4.25 3.53 1.91-.09.06-2.11 1.24-2.09 3.72.03 2.96 2.6 3.95 2.63 3.96-.02.07-.41 1.42-1.35 2.82M14.67 5.5c.7-.84 1.17-2.01 1.04-3.18-1.01.04-2.23.67-2.94 1.51-.64.74-1.2 1.93-1.05 3.08 1.13.09 2.26-.57 2.95-1.41z" /></svg>
+                            <span>Download on the App Store</span>
+                        </a>
+                        <a class="button primary" href="https://play.google.com/store/apps/details?id=com.kostin.moo">
+                            <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.4 2.2 13 12 3.4 21.8c-.25-.35-.4-.79-.4-1.3v-17c0-.5.15-.95.4-1.3Z" /><path fill="#4285f4" d="m3.9 2.05 11.75 6.7L13 12 3.4 2.2c.14-.12.3-.17.5-.15Z" /><path fill="#fbbc04" d="m15.65 8.75 4.18 2.38c.9.51.9 1.23 0 1.74l-4.18 2.38L13 12l2.65-3.25Z" /><path fill="#ea4335" d="m13 12 2.65 3.25L3.9 21.95c-.2.02-.36-.03-.5-.15L13 12Z" /></svg>
+                            <span>Get it on Google Play</span>
+                        </a>
+                        <a class="button" href="https://animalsounds.kostin.app">Visit app website</a>
+                    </div>
+                </div>
+                <div class="app-art" aria-hidden="true">
+                    <div class="animal-scene">
+                        <img class="animal-characters" src="./img/animal-friends.png" alt="" />
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="values wrap" aria-label="What our apps value">
+            <div class="value"><strong>Made for little hands</strong><span>Simple controls and age-appropriate experiences.</span></div>
+            <div class="value"><strong>Calm by design</strong><span>No stressful timers or intrusive advertising.</span></div>
+            <div class="value"><strong>Ready anywhere</strong><span>Thoughtful offline play for home and travel.</span></div>
+        </section>
+    </main>
+    <footer class="wrap">
+        <p>Independent apps by Mikhail Kostin.</p>
+        <p><a href="mailto:hello@kostin.app">hello@kostin.app</a> · © <span id="year">2026</span></p>
     </footer>
-</main>
-
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
