@@ -457,7 +457,7 @@
     <section class="consent-banner" id="consent-banner" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-description" hidden>
         <div class="consent-copy">
             <strong id="consent-title">Analytics cookies</strong>
-            <p id="consent-description">Allow Google Analytics to collect usage information so we can understand how visitors use this website and improve it. <a href="/privacy.html">Privacy details</a></p>
+            <p id="consent-description">Google Analytics sends cookieless usage measurements before you choose and if you reject cookies. Accept to allow analytics cookies that help us understand visits and improve this website. You can change your choice in Cookie settings. <a href="/privacy.html">Privacy details</a></p>
         </div>
         <div class="consent-actions">
             <button class="consent-button" id="consent-reject" type="button">Reject optional cookies</button>
@@ -469,7 +469,6 @@
         (function () {
             const measurementId = 'G-ESHFR7ZCFR';
             const consentKey = 'kostin_analytics_consent';
-            const disableKey = 'ga-disable-' + measurementId;
             const analyticsHost = window.location.hostname === 'kostin.app' || window.location.hostname === 'www.kostin.app';
             const banner = document.getElementById('consent-banner');
             const settingsButton = document.getElementById('cookie-settings');
@@ -497,15 +496,16 @@
                 });
             }
 
-            function loadAnalytics() {
-                window[disableKey] = false;
+            function updateAnalyticsConsent(value) {
                 window.gtag('consent', 'update', {
-                    analytics_storage: 'granted',
+                    analytics_storage: value,
                     ad_storage: 'denied',
                     ad_user_data: 'denied',
                     ad_personalization: 'denied'
                 });
+            }
 
+            function loadAnalytics() {
                 if (!analyticsHost || analyticsLoaded) return;
                 analyticsLoaded = true;
 
@@ -524,18 +524,12 @@
             function acceptAnalytics() {
                 rememberConsent('granted');
                 banner.hidden = true;
-                loadAnalytics();
+                updateAnalyticsConsent('granted');
             }
 
             function rejectAnalytics() {
                 rememberConsent('denied');
-                window.gtag('consent', 'update', {
-                    analytics_storage: 'denied',
-                    ad_storage: 'denied',
-                    ad_user_data: 'denied',
-                    ad_personalization: 'denied'
-                });
-                window[disableKey] = true;
+                updateAnalyticsConsent('denied');
                 removeAnalyticsCookies();
                 banner.hidden = true;
             }
@@ -548,9 +542,12 @@
             });
 
             const choice = savedConsent();
-            if (choice === 'granted') loadAnalytics();
-            else if (choice !== 'denied') banner.hidden = false;
-            else window[disableKey] = true;
+            if (choice === 'granted') updateAnalyticsConsent('granted');
+            else {
+                removeAnalyticsCookies();
+                if (choice !== 'denied') banner.hidden = false;
+            }
+            loadAnalytics();
         })();
     </script>
 </body>
