@@ -3,14 +3,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kostin Apps — Playful apps for curious minds</title>
-    <meta name="description" content="Independent, thoughtfully made apps by Mikhail Kostin. Discover Puzzle Garden and Animal Sounds for iPhone and iPad." />
+    <title>Kids’ Puzzle &amp; Animal Sounds Apps for iOS & Android | Kostin Apps</title>
+    <meta name="description" content="Discover Puzzle Garden picture puzzles and Animal Sounds listening games for young children. Explore both apps for iPhone, iPad, and Android." />
     <link rel="canonical" href="https://kostin.app/" />
     <meta name="theme-color" content="#f8f5ed" />
-    <meta property="og:title" content="Kostin Apps — Playful apps for curious minds" />
-    <meta property="og:description" content="Calm puzzles and joyful learning experiences, thoughtfully made for children and families." />
+    <meta property="og:title" content="Kids’ Puzzle &amp; Animal Sounds Apps for iOS & Android | Kostin Apps" />
+    <meta property="og:description" content="Discover Puzzle Garden and Animal Sounds: picture puzzles, animal sounds, and discovery games for children on iOS and Android." />
     <meta property="og:url" content="https://kostin.app/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kostin Apps" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://kostin.app/img/kostin-apps-social.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kostin Apps: Puzzle Garden and Animal Sounds for iOS and Android" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Puzzle Garden &amp; Animal Sounds | Kostin Apps" />
+    <meta name="twitter:description" content="Picture puzzles and animal discovery games for young children. Find your next family app for iPhone, iPad, and Android." />
+    <meta name="twitter:image" content="https://kostin.app/img/kostin-apps-social.png" />
+    <meta name="twitter:image:alt" content="Kostin Apps: Puzzle Garden and Animal Sounds for iOS and Android" />
     <link rel="icon" href="/favicon.ico" />
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -267,6 +279,21 @@
         .value { padding: 34px; background: rgba(255,255,255,.66); }
         .value strong { display: block; margin-bottom: 8px; font-size: 17px; }
         .value span { color: #66665e; font-size: 15px; }
+        .info-section { margin-bottom: 80px; }
+        .info-section h2 { max-width: 800px; margin: 0 0 24px; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -.035em; }
+        .info-section p { max-width: 760px; color: var(--muted); line-height: 1.7; }
+        .info-section a, .app-details a { text-underline-offset: 4px; }
+        .comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .comparison article { padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.66); }
+        .comparison h3 { margin: 0; font-size: 23px; }
+        .comparison p:last-child { margin-bottom: 0; }
+        .faq details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+        .faq summary { cursor: pointer; font-size: 19px; font-weight: 650; }
+        .faq details p { margin-bottom: 0; }
+        .app-details { line-height: 1.65; }
+        :focus-visible { outline: 3px solid #365a95; outline-offset: 5px; }
+        .consent-banner :focus-visible { outline-color: #fff; }
+        @media (max-width: 800px) { .comparison { grid-template-columns: 1fr; } }
         footer {
             display: flex;
             justify-content: space-between;
@@ -355,13 +382,82 @@
         }
     </style>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://kostin.app/#organization",
       "name": "Kostin Apps",
       "url": "https://kostin.app/",
-      "founder": { "@type": "Person", "name": "Mikhail Kostin" }
+      "email": "hello@kostin.app",
+      "founder": {
+        "@type": "Person",
+        "name": "Mikhail Kostin"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kostin.app/#website",
+      "url": "https://kostin.app/",
+      "name": "Kostin Apps",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://kostin.app/#organization"
+      },
+      "about": [
+        {
+          "@id": "https://kostin.app/#puzzle-garden"
+        },
+        {
+          "@id": "https://kostin.app/#animal-sounds"
+        }
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://kostin.app/#puzzle-garden",
+      "name": "Puzzle Garden",
+      "description": "Picture puzzles for children ages 3–7, with 200 pictures, 4, 6, 9, or 16 pieces, and offline puzzle play.",
+      "operatingSystem": [
+        "iOS",
+        "iPadOS",
+        "Android"
+      ],
+      "applicationCategory": "GameApplication",
+      "url": "https://puzzle.kostin.app/",
+      "image": "https://kostin.app/img/puzzle-garden-icon.png",
+      "publisher": {
+        "@id": "https://kostin.app/#organization"
+      },
+      "downloadUrl": [
+        "https://apps.apple.com/us/app/puzzle-garden-little-worlds/id6800304304",
+        "https://play.google.com/store/apps/details?id=com.kostin.puzzle"
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://kostin.app/#animal-sounds",
+      "name": "Animal Sounds",
+      "description": "Animal sounds, puzzles, and quizzes for little learners, with real photos or cartoons.",
+      "operatingSystem": [
+        "iOS",
+        "iPadOS",
+        "Android"
+      ],
+      "applicationCategory": "EducationalApplication",
+      "url": "https://animalsounds.kostin.app/",
+      "image": "https://kostin.app/img/animal-sounds-icon.png",
+      "publisher": {
+        "@id": "https://kostin.app/#organization"
+      },
+      "downloadUrl": [
+        "https://apps.apple.com/us/app/animal-sounds-learn-play/id6748567850",
+        "https://play.google.com/store/apps/details?id=com.kostin.moo"
+      ]
     }
+  ]
+}
     </script>
 </head>
 <body>
@@ -372,6 +468,7 @@
         </a>
         <nav aria-label="Main navigation">
             <a href="#apps">Apps</a>
+            <a href="#questions">For parents</a>
             <a href="https://apps.apple.com/us/developer/mikhail-kostin/id1526948314">App Store</a>
             <a href="mailto:hello@kostin.app">Contact</a>
         </nav>
@@ -380,7 +477,7 @@
         <section class="hero wrap">
             <p class="eyebrow">Independent app studio</p>
             <h1>Playful apps for curious minds.</h1>
-            <p class="hero-copy">Calm puzzles and joyful learning experiences, thoughtfully made for children and families.</p>
+            <p class="hero-copy">Discover Puzzle Garden and Animal Sounds: picture puzzles, animal sounds, and discovery games for children on iOS and Android.</p>
         </section>
         <section class="apps wrap" id="apps" aria-label="Our apps">
             <article class="app-card puzzle">
@@ -388,7 +485,8 @@
                     <img class="app-icon" src="./img/puzzle-garden-icon.png" alt="Puzzle Garden app icon" />
                     <span class="label">Available on the App Store and Google Play</span>
                     <h2>Puzzle Garden</h2>
-                    <p class="tagline">Little worlds, piece by piece. Explore 200 colorful picture puzzles made for children ages 3–7—with no ads, no timers, and no pressure.</p>
+                    <p class="tagline">Little worlds, piece by piece. Explore 200 picture puzzles made for children ages 3–7, on iPhone, iPad, and Android.</p>
+                    <p class="app-details">Choose 4, 6, 9, or 16 pieces, with an optional picture guide and straight or jigsaw edges. Puzzle pictures are bundled for offline play.</p>
                     <div class="actions">
                         <a class="button primary" href="https://apps.apple.com/us/app/puzzle-garden-little-worlds/id6800304304">
                             <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.31.03-1.74-.78-3.25-.78-1.52 0-2 .75-3.24.81-1.3.05-2.29-1.31-3.12-2.54-1.69-2.44-2.98-6.88-1.25-9.88.86-1.49 2.43-2.43 4.11-2.46 1.28-.03 2.49.87 3.25.87.72 0 2.22-1.07 3.74-.91.63.03 2.4.25 3.53 1.91-.09.06-2.11 1.24-2.09 3.72.03 2.96 2.6 3.95 2.63 3.96-.02.07-.41 1.42-1.35 2.82M14.67 5.5c.7-.84 1.17-2.01 1.04-3.18-1.01.04-2.23.67-2.94 1.51-.64.74-1.2 1.93-1.05 3.08 1.13.09 2.26-.57 2.95-1.41z" /></svg>
@@ -398,7 +496,7 @@
                             <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.4 2.2 13 12 3.4 21.8c-.25-.35-.4-.79-.4-1.3v-17c0-.5.15-.95.4-1.3Z" /><path fill="#4285f4" d="m3.9 2.05 11.75 6.7L13 12 3.4 2.2c.14-.12.3-.17.5-.15Z" /><path fill="#fbbc04" d="m15.65 8.75 4.18 2.38c.9.51.9 1.23 0 1.74l-4.18 2.38L13 12l2.65-3.25Z" /><path fill="#ea4335" d="m13 12 2.65 3.25L3.9 21.95c-.2.02-.36-.03-.5-.15L13 12Z" /></svg>
                             <span>Get it on Google Play</span>
                         </a>
-                        <a class="button" href="https://puzzle.kostin.app">Visit app website</a>
+                        <a class="button" href="https://puzzle.kostin.app">Try the picture puzzle</a>
                     </div>
                 </div>
                 <div class="app-art" aria-hidden="true">
@@ -413,9 +511,10 @@
             <article class="app-card animals">
                 <div class="app-copy">
                     <img class="app-icon" src="./img/animal-sounds-icon.png" alt="Animal Sounds app icon" />
-                    <span class="label">Learning through play</span>
+                    <span class="label">Animal discovery for little learners</span>
                     <h2>Animal Sounds</h2>
-                    <p class="tagline">Hear, guess, and discover more than 60 animals through real sounds, colorful cards, and simple games for little learners.</p>
+                    <p class="tagline">Listen, guess, and discover animal sounds, puzzles, and quizzes with your little learner. Available on iPhone, iPad, and Android.</p>
+                    <p class="app-details">Switch between real photos and cartoons. The free package includes 12 animals, with additional content available through optional in-app purchases.</p>
                     <div class="actions">
                         <a class="button primary" href="https://apps.apple.com/us/app/animal-sounds-learn-play/id6748567850">
                             <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.31.03-1.74-.78-3.25-.78-1.52 0-2 .75-3.24.81-1.3.05-2.29-1.31-3.12-2.54-1.69-2.44-2.98-6.88-1.25-9.88.86-1.49 2.43-2.43 4.11-2.46 1.28-.03 2.49.87 3.25.87.72 0 2.22-1.07 3.74-.91.63.03 2.4.25 3.53 1.91-.09.06-2.11 1.24-2.09 3.72.03 2.96 2.6 3.95 2.63 3.96-.02.07-.41 1.42-1.35 2.82M14.67 5.5c.7-.84 1.17-2.01 1.04-3.18-1.01.04-2.23.67-2.94 1.51-.64.74-1.2 1.93-1.05 3.08 1.13.09 2.26-.57 2.95-1.41z" /></svg>
@@ -425,7 +524,7 @@
                             <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3.4 2.2 13 12 3.4 21.8c-.25-.35-.4-.79-.4-1.3v-17c0-.5.15-.95.4-1.3Z" /><path fill="#4285f4" d="m3.9 2.05 11.75 6.7L13 12 3.4 2.2c.14-.12.3-.17.5-.15Z" /><path fill="#fbbc04" d="m15.65 8.75 4.18 2.38c.9.51.9 1.23 0 1.74l-4.18 2.38L13 12l2.65-3.25Z" /><path fill="#ea4335" d="m13 12 2.65 3.25L3.9 21.95c-.2.02-.36-.03-.5-.15L13 12Z" /></svg>
                             <span>Get it on Google Play</span>
                         </a>
-                        <a class="button" href="https://animalsounds.kostin.app">Visit app website</a>
+                        <a class="button" href="https://animalsounds.kostin.app">Try animal sounds</a>
                     </div>
                 </div>
                 <div class="app-art" aria-hidden="true">
@@ -437,8 +536,30 @@
         </section>
         <section class="values wrap" aria-label="What our apps value">
             <div class="value"><strong>Made for little hands</strong><span>Simple controls and age-appropriate experiences.</span></div>
-            <div class="value"><strong>Calm by design</strong><span>No stressful timers or intrusive advertising.</span></div>
-            <div class="value"><strong>Ready anywhere</strong><span>Thoughtful offline play for home and travel.</span></div>
+            <div class="value"><strong>Try together</strong><span>Explore a picture puzzle or animal sounds on the app websites.</span></div>
+            <div class="value"><strong>Choose your device</strong><span>Find both apps on the App Store and Google Play.</span></div>
+        </section>
+        <section class="info-section wrap" aria-labelledby="choose-title">
+            <p class="eyebrow">Find your next little adventure</p>
+            <h2 id="choose-title">Which app fits your child’s curiosity?</h2>
+            <div class="comparison">
+                <article><h3>For picture-puzzle explorers</h3><p>Puzzle Garden is for children ages 3–7 who enjoy fitting pieces together to reveal a picture. Start with fewer pieces, then choose a larger puzzle when your child wants a different challenge.</p><p><a href="https://puzzle.kostin.app/">Try the free monkey puzzle</a> together in your browser before exploring the app.</p></article>
+                <article><h3>For animal-sound explorers</h3><p>Animal Sounds gives parents and little learners a way to explore animal voices, pictures, puzzles, and quizzes together. Listen to a sound, name the animal, and talk about what you hear.</p><p><a href="https://animalsounds.kostin.app/">Try six animal sounds</a> in your browser to see what catches your child’s interest.</p></article>
+            </div>
+        </section>
+        <section class="info-section faq wrap" id="questions" aria-labelledby="questions-title">
+            <h2 id="questions-title">Questions from parents</h2>
+            <details><summary>Which devices can we use?</summary><p>Both Puzzle Garden and Animal Sounds are available for iPhone and iPad through the App Store, and for Android through Google Play. Check each store listing for current device and operating-system requirements.</p></details>
+            <details><summary>Which app should we try first?</summary><p>Choose Puzzle Garden for picture puzzles with different piece counts, or Animal Sounds for listening to animals and exploring pictures and games together. Both app websites have browser demos linked above.</p></details>
+            <details><summary>Where can I find current prices and purchases?</summary><p>Use the App Store and Google Play buttons for each app above. Those listings show current prices and available in-app purchases for your region. Animal Sounds includes a free package of 12 animals, with optional purchases for additional content.</p></details>
+            <details><summary>Can Puzzle Garden be played offline?</summary><p>Yes. Puzzle Garden bundles its puzzle pictures for offline play. Download the app before taking it on a trip. The browser demos need an internet connection to load.</p></details>
+            <details><summary>Where can I read the apps’ privacy policies?</summary><p>Read the <a href="https://puzzle.kostin.app/privacy-policy.html">Puzzle Garden privacy policy</a> and the <a href="https://animalsounds.kostin.app/privacy-policy.html">Animal Sounds privacy policy</a> for app-specific information. The <a href="/privacy.html">Kostin Apps website privacy policy</a> explains analytics on this website.</p></details>
+        </section>
+        <section class="info-section wrap" aria-labelledby="about-title">
+            <p class="eyebrow">Meet the maker</p>
+            <h2 id="about-title">Independent apps by Mikhail Kostin</h2>
+            <p>Kostin Apps is the home of Puzzle Garden and Animal Sounds, created by independent developer Mikhail Kostin. These apps bring picture puzzles and animal discovery to young children and the families exploring alongside them.</p>
+            <p>Have a question or feedback? Write to <a href="mailto:hello@kostin.app">hello@kostin.app</a>.</p>
         </section>
     </main>
     <footer class="wrap">
